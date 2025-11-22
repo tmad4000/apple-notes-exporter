@@ -2,6 +2,21 @@
 
 A collection of scripts to export Apple Notes from macOS, with special focus on exporting today's notes in chronological order.
 
+
+ Key scripts for future use:
+
+  - export_last_48h.sh - Gets last 48 hours (most comprehensive)
+  - export_last_24h_simple.sh - Reliable 24-hour export
+  - export_todays_notes.sh - Versatile with multiple format options
+
+  Usage:
+  cd ~/apple-notes-export
+  ./export_last_48h.sh 300 stream    # Last 48 hours, check 300 notes
+  ./export_last_24h_simple.sh 200 plain  # Last 24 hours with metadata
+
+
+
+
 ## Main Script: export_todays_notes.sh
 
 The primary script for exporting today's notes with multiple format options including plain text, HTML, and stream modes.
@@ -25,6 +40,8 @@ The primary script for exporting today's notes with multiple format options incl
 ./export_todays_notes.sh --help
 ```
 
+ 
+ 
 ### Features
 
 - **Plain text export (default)**: Strips HTML tags for clean text with metadata
