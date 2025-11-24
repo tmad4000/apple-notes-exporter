@@ -3,9 +3,12 @@
 # Export notes from the last 48 hours
 # Processes notes one by one to avoid hanging
 
-OUTPUT_FILE="$HOME/todays_notes.txt"
+OUTPUT_FILE="./output/last_48h_notes.txt"
 NOTES_TO_CHECK="${1:-300}"  # Default 300 notes for 48h period
 FORMAT="${2:-stream}"  # Default stream format
+
+# Create output directory if it doesn't exist
+mkdir -p ./output
 
 > "$OUTPUT_FILE"
 
@@ -149,7 +152,7 @@ echo ""
 echo "=========================================="
 echo "Export complete!"
 echo "  Notes exported: $NOTE_COUNT from last 48 hours"
-echo "  Output file: ~/todays_notes.txt"
+echo "  Output file: ./output/last_48h_notes.txt"
 echo "  Format: $FORMAT"
 echo "=========================================="
 
@@ -157,6 +160,6 @@ echo "=========================================="
 echo ""
 echo "Notes by date:"
 for DATE in "${DATES_TO_CHECK[@]}"; do
-    COUNT=$(grep -c "$DATE" ~/todays_notes.txt 2>/dev/null || echo "0")
+    COUNT=$(grep -c "$DATE" ./output/last_48h_notes.txt 2>/dev/null || echo "0")
     echo "  $DATE: $COUNT notes"
 done

@@ -4,7 +4,7 @@
 # More flexible than "today" - gets exactly 24 hours back from current time
 
 # Configuration
-OUTPUT_FILE="$HOME/todays_notes.txt"
+OUTPUT_FILE="./output/last_24h_notes.txt"
 NOTES_TO_CHECK="${2:-200}"  # Default check 200 notes for 24h period
 FORMAT="${1:-stream}"  # Default to stream format for cleaner output
 
@@ -30,6 +30,9 @@ if [[ "$1" == "--help" ]] || [[ "$1" == "-h" ]]; then
     echo ""
     exit 0
 fi
+
+# Create output directory if it doesn't exist
+mkdir -p ./output
 
 # Clear output file
 > "$OUTPUT_FILE"
@@ -158,5 +161,5 @@ echo "=========================================="
 echo "Export complete!"
 echo "  Notes exported: $NOTE_COUNT from last 24 hours"
 echo "  Format: $FORMAT"
-echo "  Output file: ~/todays_notes.txt"
+echo "  Output file: ./output/last_24h_notes.txt"
 echo "=========================================="

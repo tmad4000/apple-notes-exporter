@@ -3,9 +3,12 @@
 # Simple reliable script to export notes from the last 24 hours
 # Processes notes one by one to avoid hanging
 
-OUTPUT_FILE="$HOME/todays_notes.txt"
+OUTPUT_FILE="./output/last_24h_simple_notes.txt"
 NOTES_TO_CHECK="${1:-100}"  # Default 100, can specify more
 FORMAT="${2:-stream}"  # Default stream format
+
+# Create output directory if it doesn't exist
+mkdir -p ./output
 
 > "$OUTPUT_FILE"
 
@@ -106,5 +109,5 @@ echo ""
 echo "=========================================="
 echo "Export complete!"
 echo "  Notes exported: $NOTE_COUNT"
-echo "  Output file: ~/todays_notes.txt"
+echo "  Output file: ./output/last_24h_simple_notes.txt"
 echo "=========================================="

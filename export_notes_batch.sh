@@ -1,8 +1,11 @@
 #!/bin/bash
 
 # Output file
-OUTPUT_FILE="$HOME/todays_notes.txt"
+OUTPUT_FILE="./output/batch_notes.txt"
 TEMP_FILE="/tmp/notes_temp_$$.txt"
+
+# Create output directory if it doesn't exist
+mkdir -p ./output
 
 # Clear output file
 > "$OUTPUT_FILE"
@@ -71,7 +74,7 @@ else
 
     # Count the notes
     NOTE_COUNT=$(grep -c "=== Note" "$OUTPUT_FILE" 2>/dev/null || echo "0")
-    echo "Successfully exported $NOTE_COUNT note(s) from today to ~/todays_notes.txt"
+    echo "Successfully exported $NOTE_COUNT note(s) from today to ./output/batch_notes.txt"
 fi
 
 # Clean up

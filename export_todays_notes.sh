@@ -5,7 +5,7 @@
 # Now supports "yesterday" option to get last 24 hours
 
 # Configuration
-OUTPUT_FILE="$HOME/todays_notes.txt"
+OUTPUT_FILE="./output/todays_notes.txt"
 NOTES_TO_CHECK=200  # Number of recent notes to check (increased for 24h)
 FORMAT="${1:-plain}"  # Default to plain text
 
@@ -41,6 +41,9 @@ if [[ "$1" == "--help" ]] || [[ "$1" == "-h" ]]; then
     echo ""
     exit 0
 fi
+
+# Create output directory if it doesn't exist
+mkdir -p ./output
 
 # Clear output file
 > "$OUTPUT_FILE"
@@ -207,5 +210,5 @@ else
     echo "  Time period: Today"
 fi
 echo "  Format: $FORMAT"
-echo "  Output file: ~/todays_notes.txt"
+echo "  Output file: ./output/todays_notes.txt"
 echo "=========================================="

@@ -1,6 +1,10 @@
 #!/bin/bash
 
-OUTPUT_FILE="$HOME/todays_notes.txt"
+OUTPUT_FILE="./output/simple_export_notes.txt"
+
+# Create output directory if it doesn't exist
+mkdir -p ./output
+
 > "$OUTPUT_FILE"
 
 echo "Checking recent notes for today's entries..."
@@ -55,5 +59,5 @@ if [ $NOTE_COUNT -eq 0 ]; then
     echo "No notes from today found" > "$OUTPUT_FILE"
 else
     echo ""
-    echo "Successfully exported $NOTE_COUNT note(s) from today to ~/todays_notes.txt"
+    echo "Successfully exported $NOTE_COUNT note(s) from today to ./output/simple_export_notes.txt"
 fi

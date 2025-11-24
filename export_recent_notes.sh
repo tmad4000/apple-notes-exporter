@@ -1,7 +1,10 @@
 #!/bin/bash
 
 # Output file
-OUTPUT_FILE="$HOME/todays_notes.txt"
+OUTPUT_FILE="./output/recent_notes.txt"
+
+# Create output directory if it doesn't exist
+mkdir -p ./output
 
 echo "Fetching recent notes and filtering for today..."
 
@@ -81,6 +84,6 @@ if grep -q "No notes found" "$OUTPUT_FILE" 2>/dev/null; then
     cat "$OUTPUT_FILE"
 else
     NOTE_COUNT=$(grep -c "=== Note" "$OUTPUT_FILE" 2>/dev/null || echo "0")
-    echo "Successfully exported $NOTE_COUNT note(s) from today to ~/todays_notes.txt"
+    echo "Successfully exported $NOTE_COUNT note(s) from today to ./output/recent_notes.txt"
     echo "(Checked the 200 most recent notes)"
 fi
