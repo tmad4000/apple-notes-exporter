@@ -153,6 +153,21 @@ On first run, macOS will prompt you to grant Terminal permission to access Notes
 
 All scripts export to: `~/todays_notes.txt`
 
+## See Also
+
+**[Apple Notes Reader](https://github.com/tmad4000/apple-notes-reader)** - A related project that reads Apple Notes directly from the SQLite database instead of using AppleScript. It has different trade-offs:
+
+| Feature | apple-notes-exporter (this repo) | apple-notes-reader |
+|---------|--------------------------------|-------------------|
+| Approach | AppleScript/JXA via Notes app | Direct SQLite database access |
+| Speed | Slower (app automation) | Fast (direct DB queries) |
+| Permissions | Requires Notes app access | No special permissions |
+| Content | Preserves HTML formatting | May lose some formatting |
+| Filtering | Time-based (today, 24h, 48h) | All notes, search by content |
+| Contacts | No | Yes |
+
+Choose **apple-notes-exporter** for time-filtered exports with preserved formatting. Choose **apple-notes-reader** for bulk export, search, and contacts.
+
 ## License
 
 These scripts are provided as-is for personal use.
